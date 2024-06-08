@@ -6,12 +6,12 @@ import androidx.paging.PagingData
 import com.asn.popularmovies.data.model.popularMovies.Movie
 import com.asn.popularmovies.data.model.popularMovies.PopularMovies.Companion.PAGE_SIZE
 import com.asn.popularmovies.domain.popularMovies.repository.PopularMoviesRepository
-import com.asn.popularmovies.data.repository.popularMovies.pagingSource.PopularMoviePagingSource
+import com.asn.popularmovies.data.repository.popularMovies.pagingSource.PopularMoviesPagingSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class PopularMoviesRepositoryImpl @Inject constructor(
-    private val remoteDataSource: PopularMoviePagingSource,
+    private val remoteDataSource: PopularMoviesPagingSource
 ) : PopularMoviesRepository {
 
     override fun getPopularMovies(): Flow<PagingData<Movie>> {

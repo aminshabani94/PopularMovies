@@ -10,8 +10,8 @@ import com.asn.popularmovies.data.repository.popularMovies.datasource.PopularMov
 import java.io.IOException
 import javax.inject.Inject
 
-class PopularMoviePagingSource @Inject constructor(
-    private val remoteDataSource: PopularMoviesRemoteDataSource,
+class PopularMoviesPagingSource @Inject constructor(
+    private val remoteDataSource: PopularMoviesRemoteDataSource
 ) : PagingSource<Int, Movie>() {
 
     override fun getRefreshKey(state: PagingState<Int, Movie>): Int? =
