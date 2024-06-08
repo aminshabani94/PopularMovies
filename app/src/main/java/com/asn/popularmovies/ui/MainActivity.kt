@@ -1,4 +1,4 @@
-package com.asn.popularmovies
+package com.asn.popularmovies.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
