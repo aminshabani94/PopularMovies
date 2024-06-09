@@ -38,7 +38,7 @@ class SharedViewModel @Inject constructor(
         getConfiguration()
     }
 
-    private fun getPopularMovies() {
+    fun getPopularMovies() {
         viewModelScope.launch {
             getPopularMoviesUseCase()
                 .cachedIn(viewModelScope)

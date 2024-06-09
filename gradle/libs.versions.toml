@@ -17,6 +17,8 @@ hiltNavigationComposeVersion = "1.2.0"
 coilVersion = "2.6.0"
 pagingVersion = "3.3.0"
 pagingComposeVersion = "3.3.0"
+mockkVersion = "1.13.11"
+coroutinesTestsVersion = "1.5.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -45,6 +47,10 @@ androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navig
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVersion" }
 paging3-runtime = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "pagingVersion" }
 paging3-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "pagingComposeVersion" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockkVersion" }
+mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "mockkVersion" }
+mockk-agent = { group = "io.mockk", name = "mockk-agent", version.ref = "mockkVersion" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTestsVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
