@@ -7,6 +7,7 @@ import com.asn.popularmovies.data.model.popularMovies.Movie
 import com.asn.popularmovies.utils.NO_INTERNET_CONNECTION
 import com.asn.popularmovies.utils.NO_POPULAR_MOVIES
 import com.asn.popularmovies.data.repository.popularMovies.datasource.PopularMoviesRemoteDataSource
+import kotlinx.coroutines.delay
 import java.io.IOException
 import javax.inject.Inject
 
@@ -23,6 +24,10 @@ class PopularMoviesPagingSource @Inject constructor(
             val response = remoteDataSource.getPopularMovies(
                 page = page
             )
+
+            // Simulate loading delay
+            delay(LOAD_DELAY_MILLIS)
+
             when (response) {
                 is CustomResult.Success -> {
                     val popularMovies = response.data
@@ -43,5 +48,9 @@ class PopularMoviesPagingSource @Inject constructor(
         } catch (e: Exception) {
             LoadResult.Error(e)
         }
+    }
+
+    companion object {
+        private const val LOAD_DELAY_MILLIS = 1000L
     }
 }

@@ -38,7 +38,7 @@ object PopularMoviesModule {
     @Singleton
     @Provides
     fun provideGetPopularMoviesUseCase(
-        upcomingMoviesRepository: PopularMoviesRepository
+        popularMoviesRepository: PopularMoviesRepository
     ): GetPopularMoviesUseCase =
-        GetPopularMoviesUseCase(upcomingMoviesRepository)
+        GetPopularMoviesUseCase(popularMoviesRepository)
 }
