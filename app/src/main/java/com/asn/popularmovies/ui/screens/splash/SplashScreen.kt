@@ -29,6 +29,7 @@ import com.asn.popularmovies.ui.viewmodels.NavigationState
 import com.asn.popularmovies.ui.viewmodels.SharedViewModel
 import com.asn.popularmovies.ui.widgets.LoadingItem
 import com.asn.popularmovies.utils.toPx
+import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(
@@ -84,11 +85,17 @@ fun SplashScreen(
         is NavigationState.NavigateToPopularMovies -> {
             LaunchedEffect(Unit) {
                 isAnimating.value = false
+                delay(1000L)
                 navigateToPopularMoviesScreen()
             }
         }
 
-        is NavigationState.NavigateToErrorScreen -> navigateToNetworkErrorScreen()
+        is NavigationState.NavigateToErrorScreen -> {
+            LaunchedEffect(Unit) {
+                delay(1000L)
+                navigateToNetworkErrorScreen()
+            }
+        }
 
         NavigationState.Loading -> Unit
     }
