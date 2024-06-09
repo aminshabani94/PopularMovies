@@ -14,17 +14,24 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.asn.popularmovies.R
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = DarkBackground,
+    secondary = Blue,
+    tertiary = Orange,
+    background = DarkBackground,
+    onSurface = BlueGray,
+    onBackground = White
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = LightBackground,
+    secondary = Blue,
+    tertiary = Orange,
+    background = LightBackground,
+    onSurface = BlueGray,
+    onBackground = Black
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -47,7 +54,19 @@ fun PopularMoviesTheme(
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (darkTheme) {
+                dynamicDarkColorScheme(context).copy(
+                    background = DarkBackground,
+                    onSurface = BlueGray,
+                    onBackground = White
+                )
+            } else {
+                dynamicLightColorScheme(context).copy(
+                    background = LightBackground,
+                    onSurface = Black,
+                    onBackground = Black
+                )
+            }
         }
 
         darkTheme -> DarkColorScheme
@@ -57,8 +76,16 @@ fun PopularMoviesTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            window.statusBarColor =
+                if (darkTheme) DarkBackground.toArgb() else LightBackground.toArgb()
+            window.setBackgroundDrawableResource(
+                if (darkTheme) {
+                    R.drawable.dark_theme_background
+                } else {
+                    R.drawable.light_theme_background
+                }
+            )
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
 

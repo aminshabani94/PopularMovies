@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PopularMovies</string>
+    <string name="app_icon">App Icon</string>
+    <string name="error_title">Oops, something went wrong!</string>
+    <string name="error_message">We\'re having trouble loading data at the moment. Please check your internet connection or try again later.</string>
+    <string name="retry">Retry</string>
+    <string name="app_bar_title">Popular Movies</string>
+    <string name="movie_image">Movie Image</string>
+    <string name="try_again">Try Again</string>
+    <string name="something_went_wrong">Something went wrong</string>
 </resources>
